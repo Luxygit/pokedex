@@ -23,19 +23,18 @@ const CaughtPokemon = (props) => {
     const randomPokemon = pokemonNames[randomPosition]
     // add that pokemon name to the caught array in the state
     const newCaught = caught.concat(randomPokemon)
+    
     setCaught(newCaught)
   }
 
   return (
-    <p>
-      <span>Caught {caught.length} Pokémon on {props.date}</span>
-      <ul>
-        { caught.map(name => (
-          <li>{name}</li>
-        ))}
-      </ul>
-      <button onClick={catchPokemon}>Catch a Pokemon</button>
-    </p>
+    
+      <span>Caught {caught.length} Pokémon on {props.date}  
+    <ul>
+        { caught.map((name, index) => ( <li key={index}>{name}</li> ))}
+    </ul>
+    <button onClick={catchPokemon}>Catch a Pokemon</button>
+    </span>
   )
 }
 

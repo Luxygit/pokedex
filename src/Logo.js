@@ -1,6 +1,8 @@
 
 const Logo = (props) => {
-  let name = 'yonah'
+  let name = 'Diego'
+
+ 
 
   return (
     <header>
