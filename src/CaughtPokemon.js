@@ -22,10 +22,14 @@ const CaughtPokemon = (props) => {
     // get the pokemon name at that position in the pokemonNames array
     const randomPokemon = pokemonNames[randomPosition]
     // add that pokemon name to the caught array in the state
-    const newCaught = caught.concat(randomPokemon)
+    const newCaught = caught.concat(pokemonNameInput)
     
     setCaught(newCaught)
   }
+  const [pokemonNameInput, setPokemontNameInput] = useState("");
+function handleInputChange(event) {
+  setPokemontNameInput(event.target.value)
+}
 
   return (
     
@@ -33,6 +37,7 @@ const CaughtPokemon = (props) => {
     <ul>
         { caught.map((name, index) => ( <li key={index}>{name}</li> ))}
     </ul>
+    <input type="text" value={pokemonNameInput} onChange = {handleInputChange}/>
     <button onClick={catchPokemon}>Catch a Pokemon</button>
     </span>
   )
