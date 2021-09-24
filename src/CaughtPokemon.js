@@ -1,32 +1,35 @@
 import { useState } from 'react'
 
-const pokemonNames = [
-  "Dragonair", 
-  "Dragonite", 
-  "Steelix", 
-  "Solrock", 
-  "Regirock", 
-  "Regice", 
-  "Registeel",
-]
+// const pokemonNames = [
+//   "Dragonair", 
+//   "Dragonite", 
+//   "Steelix", 
+//   "Solrock", 
+//   "Regirock", 
+//   "Regice", 
+//   "Registeel",
+// ]
 
 
 const CaughtPokemon = (props) => {
   const [ caught, setCaught ] = useState([])
+  const [pokemonNameInput, setPokemontNameInput] = useState("");
 
   // PSEUDOCODE SOLUTION
   // catchPokemon adds a random pokemon to the state
   const catchPokemon = () => {
     // pick a random number between 0 and the number of pokemon names we have
-    let randomPosition = Math.floor(Math.random() * pokemonNames.length)
+    //let randomPosition = Math.floor(Math.random() * pokemonNames.length)
     // get the pokemon name at that position in the pokemonNames array
-    const randomPokemon = pokemonNames[randomPosition]
+    //const randomPokemon = pokemonNames[randomPosition]
     // add that pokemon name to the caught array in the state
     const newCaught = caught.concat(pokemonNameInput)
     
+    setPokemontNameInput("")
+
     setCaught(newCaught)
   }
-  const [pokemonNameInput, setPokemontNameInput] = useState("");
+  // we could inline this; no need to be separate from the return bit
 function handleInputChange(event) {
   setPokemontNameInput(event.target.value)
 }
